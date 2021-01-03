@@ -10,7 +10,15 @@ function SendMail(){
     const { register, handleSubmit, watch, errors } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
+        fetch("http://localhost:8080/addMessage", {
+            method: "POST",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }).then(alert("Mail sent successfully"))
+          .then(window.location.reload());
     };
 
     const dispatch = useDispatch();

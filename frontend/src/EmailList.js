@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Checkbox, IconButton } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import RedoIcon from '@material-ui/icons/Redo';
@@ -15,6 +15,14 @@ import Section from './Section';
 import EmailRow from './EmailRow';
 
 function EmailList(){
+    const [mailList, setMailList] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/getMessages")
+        .then(response => response.json())
+        .then(data => setMailList(data));
+    }, []);
+
     return (
         <div className="emailList">
             <div className="emailList_settings">
@@ -45,14 +53,16 @@ function EmailList(){
                     </IconButton>
                 </div>
             </div>
+
             <div className="emailList_sections">
                 <Section Icon={InboxIcon} title="Primary" color="red" selected />
                 <Section Icon={PeopleIcon} title="Social" color="blue" />
                 <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
             </div>
             <div className="emailList_list">
-                <EmailRow id="50" title="Twitch" subject="sample!" description="check this" time="10pm" />
-                <EmailRow id="54" title="Twitch" subject="sample!" description="dgasdglasdk;gasd;glas;dgkas;dgkas;dgas;dgkasdgas'dg dgasdglasdk;gasd;glas;dgkas;dgkas;dgkasdgas'dgthis" time="10pm" />
+                {mailList.map(mail => (
+                    <EmailRow id={mail.id} title={mail.to} subject={mail.subject} description={mail.message} time={mail?.time} />
+                ))}
             </div>
         </div>
     )

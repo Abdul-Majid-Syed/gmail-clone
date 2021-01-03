@@ -17,6 +17,7 @@
     font-size: 13px;
     flex: 0.1;
     font-weight: bold;
+    padding-right: 10px;
 }
 
 .emailRow_message{
