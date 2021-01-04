@@ -1,7 +1,7 @@
 This is a gmail-clone developed using React and Spring
 
 ## Demo
-![](https://github.com/krishna5555/gmail-clone/blob/main/demo.gif)
+![](https://github.com/krishna5555/gmail-clone/blob/main/demo1.gif)
 
 ## ⚡ Tech stack used
 
