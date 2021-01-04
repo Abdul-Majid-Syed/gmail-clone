@@ -18,6 +18,7 @@ This is a gmail-clone developed using React and Spring
     - useHistory()
     - useDispatch()
     - useSelector()
+  - React routing
   - fetch() for calling Spring REST API
   - Material UI for icons
 
