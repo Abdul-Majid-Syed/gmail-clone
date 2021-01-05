@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import AppsIcon from '@material-ui/icons/Apps';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import MailIcon from '@material-ui/icons/Mail';
 
 function Header(){
     return (
@@ -14,7 +15,11 @@ function Header(){
                 <IconButton> {/* This is for ripple effect around the component */}
                     <MenuIcon />
                 </IconButton>
-                <img src="gmail_logo.png" alt="" />
+                {/* <img src="gmail_logo.png" alt="" /> */}
+                <div className="header_logo">
+                    <MailIcon />
+                    <h1>Mail</h1>
+                </div>
             </div>
 
             <div className="header_middle">
